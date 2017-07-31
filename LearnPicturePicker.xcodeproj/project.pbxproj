@@ -12,6 +12,8 @@
 		5C0480251F142C7C00C65CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0480231F142C7C00C65CBD /* Main.storyboard */; };
 		5C0480271F142C7C00C65CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C0480261F142C7C00C65CBD /* Assets.xcassets */; };
 		5C04802A1F142C7C00C65CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C0480281F142C7C00C65CBD /* LaunchScreen.storyboard */; };
+		5C0480321F16C74500C65CBD /* TopTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0480311F16C74500C65CBD /* TopTextDelegate.swift */; };
+		5C0480341F16C78E00C65CBD /* BottomTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0480331F16C78E00C65CBD /* BottomTextDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		5C0480261F142C7C00C65CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C0480291F142C7C00C65CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C04802B1F142C7C00C65CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C0480311F16C74500C65CBD /* TopTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTextDelegate.swift; sourceTree = "<group>"; };
+		5C0480331F16C78E00C65CBD /* BottomTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTextDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				5C0480261F142C7C00C65CBD /* Assets.xcassets */,
 				5C0480281F142C7C00C65CBD /* LaunchScreen.storyboard */,
 				5C04802B1F142C7C00C65CBD /* Info.plist */,
+				5C0480311F16C74500C65CBD /* TopTextDelegate.swift */,
+				5C0480331F16C78E00C65CBD /* BottomTextDelegate.swift */,
 			);
 			path = LearnPicturePicker;
 			sourceTree = "<group>";
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0480341F16C78E00C65CBD /* BottomTextDelegate.swift in Sources */,
 				5C0480221F142C7C00C65CBD /* ViewController.swift in Sources */,
+				5C0480321F16C74500C65CBD /* TopTextDelegate.swift in Sources */,
 				5C0480201F142C7C00C65CBD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +309,7 @@
 				5C0480301F142C7C00C65CBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
