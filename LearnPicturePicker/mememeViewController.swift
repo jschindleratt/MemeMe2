@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class mememeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let TopDelegate = TopTextFieldDelegate()
     let BottomDelegate = BottomTextFieldDelegate()
 
@@ -18,12 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: -1]
 
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-    }
+
     
     @IBOutlet weak var vcPictures: UIImageView!
     
@@ -41,15 +36,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.txtTop.delegate = TopDelegate
         self.txtBottom.delegate = BottomDelegate
 
-        txtTop.defaultTextAttributes = memeTextAttributes
-        txtTop.text = "TOP"
-        txtTop.textAlignment = NSTextAlignment.center
-        txtBottom.defaultTextAttributes = memeTextAttributes
-        txtBottom.text = "BOTTOM"
-        txtBottom.textAlignment = NSTextAlignment.center
-        saveButton.isEnabled = false
+        styleButtons(btn: txtTop, txt: "TOP")
+        styleButtons(btn: txtBottom, txt: "BOTTOM")
     }
-        
+    
     @IBAction func clickCancel(_ sender: Any) {
         vcPictures.image = nil
         txtTop.text = "TOP"
@@ -82,17 +72,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func pickAnIamge(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        dispPicker(src: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        dispPicker(src: .camera)
     }
     
     func keyboardWillShow(_ notification:Notification) {
@@ -124,9 +108,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func LaunchActivityView(_ sender: Any) {
         print("LaunchActivityView")
         let MemeImage:UIImage = generateMemedImage()
-        ////let image = UIImage()
         let controller = UIActivityViewController(activityItems: [MemeImage], applicationActivities: nil)
-        //controller.completionWithItemsHandler = {save() }
         
         controller.completionWithItemsHandler = {
             activity, completed, items, error in
@@ -136,7 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         
-        self.present(controller, animated: true, completion:nil)
+        present(controller, animated: true, completion:nil)
     }
 
     func save() {
@@ -152,9 +134,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topNavBar.isHidden = true
-        botToolBar.isHidden = true
+        topNavBar.isHidden = false
+        botToolBar.isHidden = false
         
         return memedImage
     }
+    
+    func styleButtons(btn: UITextField, txt: String) {
+        btn.defaultTextAttributes = memeTextAttributes
+        btn.text = txt
+        btn.textAlignment = NSTextAlignment.center
+    }
+    
+    func dispPicker(src: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = src
+        present(imagePicker, animated: true, completion: nil)
+
+    }
+
 }
