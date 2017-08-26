@@ -8,9 +8,9 @@
 
 import UIKit
 
-class mememeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let TopDelegate = TopTextFieldDelegate()
-    let BottomDelegate = BottomTextFieldDelegate()
+class MememeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    let topDelegate = TopTextFieldDelegate()
+    let bottomDelegate = BottomTextFieldDelegate()
 
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
@@ -33,8 +33,8 @@ class mememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtTop.delegate = TopDelegate
-        self.txtBottom.delegate = BottomDelegate
+        self.txtTop.delegate = topDelegate
+        self.txtBottom.delegate = bottomDelegate
 
         styleButtons(btn: txtTop, txt: "TOP")
         styleButtons(btn: txtBottom, txt: "BOTTOM")
@@ -45,6 +45,7 @@ class mememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         txtTop.text = "TOP"
         txtBottom.text = "BOTTOM"
         saveButton.isEnabled = false
+        self.dismiss(animated: true, completion: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -106,7 +107,6 @@ class mememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func LaunchActivityView(_ sender: Any) {
-        print("LaunchActivityView")
         let MemeImage:UIImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [MemeImage], applicationActivities: nil)
         
@@ -123,21 +123,27 @@ class mememeViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     func save() {
         let meme = Meme(topText: txtTop.text!, bottomText: txtBottom.text!, originalImage: vcPictures.image!, memedImage: generateMemedImage())
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
-        topNavBar.isHidden = true
-        botToolBar.isHidden = true
-
+        manageToolbars(bolShow: true)
+            
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topNavBar.isHidden = false
-        botToolBar.isHidden = false
+        manageToolbars(bolShow: false)
         
         return memedImage
+    }
+    
+    func manageToolbars(bolShow: Bool) {
+        topNavBar.isHidden = bolShow
+        botToolBar.isHidden = bolShow
     }
     
     func styleButtons(btn: UITextField, txt: String) {
@@ -151,7 +157,5 @@ class mememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
         imagePicker.sourceType = src
         present(imagePicker, animated: true, completion: nil)
-
     }
-
 }

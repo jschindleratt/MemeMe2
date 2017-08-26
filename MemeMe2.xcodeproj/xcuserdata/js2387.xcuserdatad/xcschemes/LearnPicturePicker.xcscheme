@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C04801B1F142C7C00C65CBD"
-               BuildableName = "LearnPicturePicker.app"
-               BlueprintName = "LearnPicturePicker"
-               ReferencedContainer = "container:LearnPicturePicker.xcodeproj">
+               BuildableName = "MemeMe2.app"
+               BlueprintName = "MemeMe2"
+               ReferencedContainer = "container:MemeMe2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C04801B1F142C7C00C65CBD"
-            BuildableName = "LearnPicturePicker.app"
-            BlueprintName = "LearnPicturePicker"
-            ReferencedContainer = "container:LearnPicturePicker.xcodeproj">
+            BuildableName = "MemeMe2.app"
+            BlueprintName = "MemeMe2"
+            ReferencedContainer = "container:MemeMe2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C04801B1F142C7C00C65CBD"
-            BuildableName = "LearnPicturePicker.app"
-            BlueprintName = "LearnPicturePicker"
-            ReferencedContainer = "container:LearnPicturePicker.xcodeproj">
+            BuildableName = "MemeMe2.app"
+            BlueprintName = "MemeMe2"
+            ReferencedContainer = "container:MemeMe2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C04801B1F142C7C00C65CBD"
-            BuildableName = "LearnPicturePicker.app"
-            BlueprintName = "LearnPicturePicker"
-            ReferencedContainer = "container:LearnPicturePicker.xcodeproj">
+            BuildableName = "MemeMe2.app"
+            BlueprintName = "MemeMe2"
+            ReferencedContainer = "container:MemeMe2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

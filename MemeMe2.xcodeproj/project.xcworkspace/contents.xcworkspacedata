@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LearnPicturePicker.xcodeproj">
+      location = "self:/Users/js2387/Documents/LearnPicturePicker copy/MemeMe2.xcodeproj">
    </FileRef>
 </Workspace>
