@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MememeViewController.swift
 //  LearnPicturePicker
 //
 //  Created by Joshua Schindler on 7/10/17.
@@ -9,8 +9,7 @@
 import UIKit
 
 class MememeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let topDelegate = TopTextFieldDelegate()
-    let bottomDelegate = BottomTextFieldDelegate()
+    let textDelegate = TextDelegate()
 
     let memeTextAttributes:[String:Any] = [
         NSStrokeColorAttributeName: UIColor.black,
@@ -33,8 +32,8 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtTop.delegate = topDelegate
-        self.txtBottom.delegate = bottomDelegate
+        self.txtTop.delegate = textDelegate
+        self.txtBottom.delegate = textDelegate
 
         styleButtons(btn: txtTop, txt: "TOP")
         styleButtons(btn: txtBottom, txt: "BOTTOM")
@@ -157,5 +156,9 @@ class MememeViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.delegate = self
         imagePicker.sourceType = src
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
